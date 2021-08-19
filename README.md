@@ -6,7 +6,7 @@ This is a game created as my first IronHack project as part of my Web Developmen
 
 The game is a Tower Defense where you defend the forest with your super powerful birds, which release some laser shots from alien birds that want to conquer the forest
 
-Click here to play! <https://renanbartalo.github.io/game-tower-defense/>
+Click [here](https://renanbartalo.github.io/save-the-florest) to play! 
 
 ## How to play
 
@@ -22,4 +22,4 @@ This is a browser game
 
 ## Presentation
 
-You can check my presentation right here.
+You can check my presentation right [here](https://docs.google.com/presentation/d/1lzcOajvgkQnJvGPIQ7H9nRXyPkX-ki0ilRoX9sPbCek/edit?usp=sharing).

@@ -51,6 +51,10 @@ canvas.addEventListener("mouseleave", function () {
   mouse.x = undefined;
 });
 
+window.addEventListener('resize', function(){
+  canvasPosition = canvas.getBoundingClientRect();
+})
+
 const startButton = document.getElementById("startId");
 startButton.addEventListener("click", function () {
   gameStopped === true ? (gameStopped = false, animate()) : gameStopped = true;
@@ -345,3 +349,4 @@ function collision(first, second) {
     return true;
   }
 }
+
