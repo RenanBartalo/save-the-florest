@@ -28,6 +28,9 @@ enemy01.src = "js/Images/skeleton-fly_00.png";
 let enemy02 = new Image();
 enemy02.src = "js/Images/skeleton-walking_0.png";
 
+let laser = new Image();
+laser.src = "js/Images/laser.png";
+
 const mouse = {
   x: 10,
   y: 10,
@@ -104,18 +107,20 @@ class Shoot {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.width = 15;
+    this.width = 20;
     this.height = 3;
     this.power = 20;
     this.speed = 7;
+    /* this.image = image; */
   }
   update() {
     this.x += this.speed;
   }
   draw() {
-    context.fillStyle = "red";
+
+ /*    context.drawImage(this.image, this.x, this.y, this.width, this.height); */
+   context.fillStyle = "#F5364C";
     context.beginPath();
-    // context.arc(this.x, this.y, this.width, 0, Math.PI * 2);
     context.fillRect(this.x, this.y, this.width, this.height);
     context.fill();
   }
@@ -130,14 +135,14 @@ function handleAmmunition() {
       if (
         enemies[j] &&
         ammunition[i] &&
-        collision(ammunition[i], enemies[j])
+        collision(ammunition[i] , enemies[j])
       ) {
         enemies[j].health -= ammunition[i].power;
         ammunition.splice(i, 1);
         i--;
       }
 
-      if (ammunition[i] && ammunition[i].x > canvas.width - cellSize) {
+      if (ammunition[i] && ammunition[i].x > canvas.width - cellSize ) {
         ammunition.splice(i, 1);
         i--;
       }
@@ -159,7 +164,7 @@ class Defender {
     this.image.src = "js/Images/skeleton-animation_00.png";
   }
   draw() {
-    context.fillStyle = "purple";
+    //context.fillStyle = "purple";
     context.drawImage(this.image, this.x, this.y, this.width, this.height);
     context.fillStyle = "red";
     context.font = "1px Press Start 2P', cursive";
@@ -168,7 +173,7 @@ class Defender {
   update() {
     this.timer++;
     if (this.timer % 150 === 0) {
-      ammunition.push(new Shoot(this.x + 30, this.y + 25));
+      ammunition.push(new Shoot(this.x + 13, this.y + 30));
     }
   }
 }

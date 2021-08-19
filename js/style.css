@@ -1,58 +1,64 @@
-*{
-    padding: 0;
-    margin: 0;
-  }
-  
-  body{
-      background-color: rgb(39, 11, 11);
-  }
-  #canvas{
-      border: 4px solid rgb(47, 32, 114);
-      top: 50%; 
-      width: 900px;
-      height: 600px;  
-      background: linear-gradient(to top, purple, purple, yellow, red);
-      font-family: 'Press Start 2P', cursive;
-      margin-top: 10px;
-  }
-  
-  .Start{
-    margin-left: 25px;
-      display: flex;
-      flex-direction:column;
-      align-items: center; 
-  }
-  
-  #startId {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 200%;
-      background-color: purple;
-      margin-top: 50px;
-      width: 200px;
-      }
-  
-    #resetId {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 200%;
-      background-color: purple;
-      margin-bottom: 20px;
-      width: 200px;
-      }
-  
-    .gameBlock{
-     /*  border: 2px solid lightgreen; */
-      max-width: 1000px;
-      flex-direction:column;
-      align-items: center;
-    }
-    .col{
-      max-width: 800px;
-      font-family: 'Press Start 2P', cursive;
-      color: white;
-      font-size: 20px;
-      margin-top: 5px;
-    }   
-    .all{
-      max-width: 908px;
-    }
-    
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+#canvas {
+  border: 4px solid rgb(47, 32, 114);
+  top: 50%;
+  width: 900px;
+  height: 600px;
+  background: linear-gradient(to top, purple, purple, yellow, red);
+  font-family: "Press Start 2P", cursive;
+  margin-top: 10px;
+}
+h1 {
+ /*  border: 2px solid green; */
+  color: purple;
+  font-family: "Press Start 2P", cursive;
+  margin-top: 50px;
+  text-align: center;
+  width: 908px;
+}
+.Start {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#startId {
+  font-family: "Press Start 2P", cursive;
+  font-size: 200%;
+  background-color: purple;
+  margin-top: 50px;
+  width: 200px;
+}
+
+#resetId {
+  font-family: "Press Start 2P", cursive;
+  font-size: 200%;
+  background-color: purple;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.gameBlock {
+  /*  border: 2px solid lightgreen; */
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: center;
+}
+.col {
+  max-width: 800px;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.all {
+  max-width: 908px;
+}
