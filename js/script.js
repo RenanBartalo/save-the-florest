@@ -51,10 +51,6 @@ canvas.addEventListener("mouseleave", function () {
   mouse.x = undefined;
 });
 
-window.addEventListener('resize', function(){
-  canvasPosition = canvas.getBoundingClientRect();
-})
-
 const startButton = document.getElementById("startId");
 startButton.addEventListener("click", function () {
   gameStopped === true ? (gameStopped = false, animate()) : gameStopped = true;
@@ -331,7 +327,7 @@ function animate() {
   handleEnemies();
   handleGameStatus();
   frame++;
-  console.log(interval);
+  /* console.log(interval); */
   if (!gameStopped) {
     requestAnimationFrame(animate);
   }
@@ -350,3 +346,6 @@ function collision(first, second) {
   }
 }
 
+window.addEventListener('resize', function(){
+  canvasPosition = canvas.getBoundingClientRect();
+});
