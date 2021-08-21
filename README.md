@@ -10,7 +10,7 @@ Click [here](https://renanbartalo.github.io/save-the-florest) to play!
 
 ## How to play
 
-* Just hover over the arena and select the square you want and click on this spot to place your bird. your enemies come from the right.
+* Just hover over the arena and select the square you want and click on this spot to place your bird. Your enemies come from the right.
 
 * Every time you kill an alien bird, you gain more resources to call more birds.
 
