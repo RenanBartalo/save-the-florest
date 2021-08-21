@@ -53,8 +53,10 @@ canvas.addEventListener("mouseleave", function () {
 
 const startButton = document.getElementById("startId");
 startButton.addEventListener("click", function () {
-  gameStopped === true ? (gameStopped = false, animate()) : gameStopped = true;
-}); 
+  gameStopped === true
+    ? ((gameStopped = false), animate())
+    : (gameStopped = true);
+});
 
 const resetButton = document.getElementById("resetId");
 resetButton.addEventListener("click", function () {
@@ -69,7 +71,7 @@ resetButton.addEventListener("click", function () {
   enemies = [];
   gameGrid = [];
   defenders = [];
-}); 
+});
 
 //Criando a celula.
 class cell {
@@ -111,15 +113,12 @@ class Shoot {
     this.height = 3;
     this.power = 20;
     this.speed = 7;
-    /* this.image = image; */
   }
   update() {
     this.x += this.speed;
   }
   draw() {
-
- /*    context.drawImage(this.image, this.x, this.y, this.width, this.height); */
-   context.fillStyle = "#F5364C";
+    context.fillStyle = "#F5364C";
     context.beginPath();
     context.fillRect(this.x, this.y, this.width, this.height);
     context.fill();
@@ -132,17 +131,13 @@ function handleAmmunition() {
     ammunition[i].draw();
 
     for (let j = 0; j < enemies.length; j++) {
-      if (
-        enemies[j] &&
-        ammunition[i] &&
-        collision(ammunition[i] , enemies[j])
-      ) {
+      if (enemies[j] && ammunition[i] && collision(ammunition[i], enemies[j])) {
         enemies[j].health -= ammunition[i].power;
         ammunition.splice(i, 1);
         i--;
       }
 
-      if (ammunition[i] && ammunition[i].x > canvas.width - cellSize ) {
+      if (ammunition[i] && ammunition[i].x > canvas.width - cellSize) {
         ammunition.splice(i, 1);
         i--;
       }
@@ -164,7 +159,6 @@ class Defender {
     this.image.src = "js/Images/skeleton-animation_00.png";
   }
   draw() {
-    //context.fillStyle = "purple";
     context.drawImage(this.image, this.x, this.y, this.width, this.height);
     context.fillStyle = "red";
     context.font = "1px Press Start 2P', cursive";
@@ -208,7 +202,7 @@ function handleDefenders() {
       }
     }
   }
-  if(score === 50){
+  if (score === 50) {
     youWin = true;
     gameStopped = true;
   }
@@ -231,20 +225,18 @@ class Enemy {
     this.maxFrame = 11;
     this.spriteWidht = 473;
     this.spriteHeight = 468;
-
   }
   update() {
     this.x -= this.movement;
-/*     if(frame % 1 === 0){
-    if(this.frameX < this.maxFrame) this.frameX ++;
-    else this.frameX = this.minFrame;
-  } */
-
-  
-}
+  }
   draw() {
-    context.drawImage(this.image, /* this.frameX * this.spriteWidht , 0, this.spriteWidht, this.spriteHeight,  */this.x, this.y, this.width, this.height);
-    //context.fillRect(this.x, this.y, this.width, this.height);
+    context.drawImage(
+      this.image,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
     context.fillStyle = "red";
     context.font = "1px Press Start 2P', cursive";
     context.fillText(Math.floor(this.health), this.x + 15, this.y + 15);
@@ -271,7 +263,6 @@ function handleEnemies() {
     let speedX = Math.random() * 0.1 + 0.9;
     let VerticalPosition = Math.floor(Math.random() * 11 + 1) * cellSize;
     enemies.push(new Enemy(VerticalPosition, speedX, health, enemy01));
-   //console.log('teste')
     if (interval > 50) {
       interval -= 40;
     }
@@ -283,7 +274,7 @@ function handleEnemies() {
     let speedX = Math.random() * 0.1 + 0.6;
     let VerticalPosition = Math.floor(Math.random() * 11 + 1) * cellSize;
     enemies.push(new Enemy(VerticalPosition, speedX, 300, enemy02));
-    console.log('thiswillrunnow??')
+    console.log("thiswillrunnow??");
   }
 }
 //jogabilidade
@@ -291,36 +282,30 @@ function handleEnemies() {
 function handleGameStatus() {
   context.fillStyle = "black";
   context.font = "15px 'Press Start 2P', cursive";
-  context.fillText(
-    "$ " + resource + "  Score: " + score,
-    20,
-    30
-  );
+  context.fillText("$ " + resource + "  Score: " + score, 20, 30);
   if (gameOver) {
     context.fillStyle = "black";
     context.font = "60px 'Press Start 2P', cursive";
     context.fillText("GAME OVER", 160, 400);
   }
-  if(youWin){
-  context.fillStyle = "Green";
-  context.font = "50px 'Press Start 2P', cursive";
-  context.fillText("Congratulations!!!", 30, 190);
+  if (youWin) {
+    context.fillStyle = "Green";
+    context.font = "50px 'Press Start 2P', cursive";
+    context.fillText("Congratulations!!!", 10, 190);
   }
 }
 
 //Imagem de fundo
 const background = new Image();
-background.src = 'js/Images/output-onlinepngtools.png';
+background.src = "js/Images/output-onlinepngtools.png";
 
-function handleBackground(){
+function handleBackground() {
   context.drawImage(background, 0, cellSize, 900, 600);
 }
 
-
-
 function animate() {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  handleBackground()
+  handleBackground();
   handleGameGrid();
   handleDefenders();
   handleAmmunition();
@@ -346,6 +331,6 @@ function collision(first, second) {
   }
 }
 
-window.addEventListener('resize', function(){
+window.addEventListener("resize", function () {
   canvasPosition = canvas.getBoundingClientRect();
 });
